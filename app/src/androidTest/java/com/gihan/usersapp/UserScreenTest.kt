@@ -10,6 +10,7 @@ import com.gihan.usersapp.Users.domain.UserData
 import com.gihan.usersapp.Users.prsentation.userList.ScreenUsersState
 import com.gihan.usersapp.Users.prsentation.userList.UsersScreen
 import com.gihan.usersapp.ui.theme.UsersAppTheme
+import com.gihan.usersapp.utils.SemanticDescription
 import org.junit.Rule
 import org.junit.Test
 

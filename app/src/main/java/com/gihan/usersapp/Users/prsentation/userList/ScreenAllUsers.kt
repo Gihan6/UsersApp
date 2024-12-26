@@ -32,7 +32,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.gihan.usersapp.R
-import com.gihan.usersapp.SemanticDescription
+import com.gihan.usersapp.utils.SemanticDescription
 import com.gihan.usersapp.Users.domain.UserData
 import com.gihan.usersapp.ui.theme.UsersAppTheme
 

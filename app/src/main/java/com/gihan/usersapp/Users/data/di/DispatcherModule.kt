@@ -8,8 +8,8 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Qualifier
 
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
+@Qualifier //allow to provide different type of dispatchers
+@Retention(AnnotationRetention.BINARY) // to know how i store the annotation
 annotation class MainDispatcher
 @Qualifier
 @Retention(AnnotationRetention.BINARY)

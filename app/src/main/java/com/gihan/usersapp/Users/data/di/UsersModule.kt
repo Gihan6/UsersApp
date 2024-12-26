@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(SingletonComponent::class) //Dagger used this component to install dependencies on it
 object  UsersModule {
     @Provides
     fun provideRoomDB(db: LikesDataBase): LikesDAO {
