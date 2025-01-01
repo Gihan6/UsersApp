@@ -1,0 +1,71 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+ desc "print"
+  lane :print do
+    print ("fast lane install successfully ")
+  end
+
+  desc "generate debug apk"
+   lane :generate do
+       gradle(task:"assembleDebug")
+   end
+
+  desc "generate signed apk"
+    lane :generate_signed_apk do
+       gradle(
+         task: "assemble",
+         flavor: "pro",
+         build_type: "Release",
+           properties: {
+             "android.injected.signing.store.file" => "keystore.jks",
+             "android.injected.signing.store.password" => "12345678",
+             "android.injected.signing.key.alias" => "key0",
+             "android.injected.signing.key.password" => "12345678",
+           }
+       )
+  end
+
+   desc "distribute to firebase"
+    lane:distribute_firebase do
+         firebase_aPP_distribution(
+           app:"1:50882542396:android:60d170a6a028b78228fc39",
+           firebase_cli_token:"1//03pki5OOMVhakCgYIARAAGAMSNwF-L9IrJicPN4wSFKLXk_7o2gkJX0_rTR4QaDg_Tateu-L7wA3U3W9ACQTNj8ze924fZ14yd0E",
+           release_notes: "production build of app",
+           groups: "tester"
+          )
+   end
+
+    desc "clean project"
+      lane:clean_app do
+        gradle(task:"clean")
+    end
+
+    desc "generate signed apk and distribute on firebase distribution "
+       lane:beta_android do
+         generate_signed_apk
+         distribute_firebase
+  end
+
+end

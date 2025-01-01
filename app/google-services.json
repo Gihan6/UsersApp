@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "50882542396",
+    "firebase_url": "https://signin-227110-default-rtdb.firebaseio.com",
+    "project_id": "signin-227110",
+    "storage_bucket": "signin-227110.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50882542396:android:60d170a6a028b78228fc39",
+        "android_client_info": {
+          "package_name": "com.gihan.usersapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_Pa-ckRVQH9SUplPIr9rVfpVzAyYBiKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

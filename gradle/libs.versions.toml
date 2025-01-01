@@ -14,8 +14,10 @@ navigation = "2.8.3"
 room = "2.6.1"
 org-jetbrains-kotlin-android = "1.9.0"
 hilt = "2.51.1"
-hilt-navigation="1.0.0"
-kotlinCorotiunesTest="1.9.0"
+hilt-navigation = "1.0.0"
+kotlinCorotiunesTest = "1.9.0"
+gms = "4.4.2"
+google-firebase="33.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,10 +44,10 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-hilt-navigation-compose={group="androidx.hilt",name="hilt-navigation-compose",version.ref="hilt-navigation"}
-
-kotlinx-coroutines-test={group="org.jetbrains.kotlinx",name="kotlinx-coroutines-test",version.ref="kotlinCorotiunesTest"}
-androidx-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation" }
+google-firebase={group="com.google.firebase",name="firebase-bom",version.ref="google-firebase"}
+google-analytics={group="com.google.firebase",name="firebase-analytics"}
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCorotiunesTest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

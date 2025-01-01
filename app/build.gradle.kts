@@ -10,18 +10,30 @@ android {
     compileSdk = 35
 
     defaultConfig {
+        manifestPlaceholders["hostName"] = "com.gihan.usersapp"
+
         applicationId = "com.gihan.usersapp"
         minSdk = 25
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
+    flavorDimensions += "version"
+    productFlavors {
+        create("free") {
+            dimension = "version"
 
+        }
+        create("pro") {
+            dimension = "version"
+
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -29,6 +41,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            applicationIdSuffix = ".debug"
+            isDebuggable = true
         }
     }
     compileOptions {
@@ -75,6 +91,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    //Firebase
+    implementation(platform(libs.google.firebase))
+    implementation(libs.google.analytics)
 
 
     testImplementation(libs.junit)
