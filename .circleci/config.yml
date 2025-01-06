@@ -1,0 +1,17 @@
+
+
+
+
+  version: 2.1
+  jobs:
+    beta_android:
+      docker:
+          - image: circleci/buildpack-deps:latest-browsers-legacy
+      steps:
+        - checkout
+        - run: yarn beta_android
+
+  workflows:
+    beta:
+      jobs:
+        - beta_android

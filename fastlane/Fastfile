@@ -16,6 +16,9 @@
 default_platform(:android)
 
 platform :android do
+  before_all do
+    setup_circle_ci
+  end
 
   desc "Runs all the tests"
   lane :test do
@@ -66,6 +69,14 @@ platform :android do
        lane:beta_android do
          generate_signed_apk
          distribute_firebase
-  end
+    end
+
+    desc "Run tests"
+      lane:run_test do
+        gradle(task: "test")
+    end
+
+
+bundle update
 
 end

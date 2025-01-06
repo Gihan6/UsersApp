@@ -71,6 +71,14 @@ clean project
 
 generate signed apk and distribute on firebase distribution 
 
+### android instrumentation_tests
+
+```sh
+[bundle exec] fastlane android instrumentation_tests
+```
+
+Run instrumentation tests
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
