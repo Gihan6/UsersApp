@@ -4,7 +4,7 @@ version: 2.1
 executors:
   android-executor:
     docker:
-      - image: circleci/android:2022.10.1  # Use the appropriate Docker image for your project
+      - image: circleci/latest-browsers-legacy  # Use the appropriate Docker image for your project
     working_directory: ~/project
     environment:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs='-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError'"
