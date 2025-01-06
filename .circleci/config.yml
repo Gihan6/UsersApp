@@ -1,17 +1,37 @@
 
+version: 2.1
+
+executors:
+  android-executor:
+    docker:
+      - image: circleci/android:2022.10.1  # Use the appropriate Docker image for your project
+    working_directory: ~/project
+    environment:
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs='-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError'"
+      JDK_VERSION: openjdk11
+
+jobs:
+  fastlane-deploy:
+    executor: android-executor
+    steps:
+      - checkout  # Check out the code from your repository
+
+      - run:
+          name: Install Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install ruby ruby-dev build-essential -y
+            gem install bundler:2.3.26  # Install Bundler
+            bundle install             # Install gems including Fastlane
+
+      - run:
+          name: Run Fastlane
+          command: bundle exec fastlane beta_android # Replace <lane_name> with your lane
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - fastlane-deploy
 
 
-
-  version: 2.1
-  jobs:
-    beta_android:
-      docker:
-          - image: circleci/buildpack-deps:latest-browsers-legacy
-      steps:
-        - checkout
-        - run: yarn beta_android
-
-  workflows:
-    beta:
-      jobs:
-        - beta_android
