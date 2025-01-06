@@ -4,7 +4,7 @@ version: 2.1
 executors:
   android-executor:
     docker:
-      - image: circleci/l14.04-curl-dind  # Use the appropriate Docker image for your project
+      - image: circleci/android:api-30-node  # Use the appropriate Docker image for your project
     working_directory: ~/project
     environment:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs='-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError'"
