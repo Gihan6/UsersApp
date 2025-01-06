@@ -15,15 +15,6 @@ jobs:
     executor: android-executor
     steps:
       - checkout  # Check out the code from your repository
-
-      - run:
-          name: Install Dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install ruby ruby-dev build-essential -y
-            gem install bundler:2.3.26  # Install Bundler
-            bundle install             # Install gems including Fastlane
-
       - run:
           name: Run Fastlane
           command: bundle exec fastlane beta_android # Replace <lane_name> with your lane
